@@ -1,0 +1,29 @@
+# Environment
+.env
+
+# Virtual Environment
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Database
+*.sqlite3
+*.db
+
+# Logs
+*.log
+
+# Models
+*.pkl
+
+# VS Code
+.vscode/
+
+# Backup
+backup/
+
+# Metadata
+*.metadata.json
