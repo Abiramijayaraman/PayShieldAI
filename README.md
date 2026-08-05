@@ -1,111 +1,190 @@
-# README.md
+# 🛡️ PayShieldAI
 
-# PayShield AI
+An AI-powered financial fraud detection system built with **Python, Streamlit, PostgreSQL, and Machine Learning**. PayShieldAI helps detect fraudulent financial transactions through real-time monitoring, transaction analysis, batch prediction, analytics dashboards, alerts, reporting, and AI-generated explanations.
 
-An end‑to‑end **AI‑powered real‑time financial fraud detection** system built as a single Streamlit application.
+---
 
-## Features
-- Secure email/password authentication (bcrypt, PostgreSQL).
-- Trainable fraud detection model (RandomForest, XGBoost, etc.) with automatic preprocessing.
-- Real‑time transaction simulation that updates a live dashboard.
-- PostgreSQL storage for users, transactions, predictions, alerts, reports and chat history.
-- AI‑generated explanations for each prediction using OpenRouter.
-- Interactive Plotly visualisations, downloadable CSV reports, and an AI chatbot.
-- Comprehensive logging and automated pytest suite.
+## 🚀 Features
 
-## Project Structure
+- 🔐 Secure user authentication
+- 💳 Single transaction fraud prediction
+- 📂 Batch transaction analysis using CSV upload
+- 🤖 AI-generated fraud explanations
+- 📊 Interactive analytics dashboard
+- 📈 Real-time fraud monitoring
+- 🚨 Automated fraud alerts
+- 📄 Prediction history and reports
+- 💬 AI chatbot assistant
+- 🗄️ PostgreSQL database integration
+- 📥 Downloadable prediction reports
+- 📉 Risk score visualization and fraud analytics
+
+---
+
+## 🛠️ Tech Stack
+
+- Python 3.x
+- Streamlit
+- PostgreSQL
+- SQLAlchemy
+- Scikit-learn
+- Pandas
+- NumPy
+- Altair
+- Plotly
+- OpenRouter AI
+
+---
+
+## 📂 Project Structure
+
 ```
 PayShieldAI/
-│   .gitignore
-│   README.md
-│   requirements.txt
-│   .env.example
-│   main.py
 │
-├─ src/
-│   ├─ __init__.py
-│   ├─ config.py
-│   ├─ db/
-│   │   ├─ __init__.py
-│   │   ├─ base.py
-│   │   ├─ models.py
-│   │   └─ session.py
-│   ├─ security/
-│   │   ├─ __init__.py
-│   │   ├─ password.py
-│   │   └─ auth.py
-│   ├─ ml/
-│   │   ├─ __init__.py
-│   │   ├─ data_loader.py
-│   │   ├─ preprocessing.py
-│   │   ├─ train.py
-│   │   ├─ inference.py
-│   │   └─ explain.py
-│   ├─ simulation/
-│   │   ├─ __init__.py
-│   │   └─ runner.py
-│   ├─ ui/
-│   │   ├─ __init__.py
-│   │   ├─ components/
-│   │   │   ├─ navigation.py
-│   │   │   ├─ metrics_card.py
-│   │   │   └─ alert_banner.py
-│   │   └─ pages/
-│   │       ├─ 1_Login.py
-│   │       ├─ 2_Dashboard.py
-│   │       ├─ 3_RealTimeMonitoring.py
-│   │       ├─ 4_TransactionSimulation.py
-│   │       ├─ 5_PredictionHistory.py
-│   │       ├─ 6_Analytics.py
-│   │       ├─ 7_Reports.py
-│   │       ├─ 8_Alerts.py
-│   │       ├─ 9_Chatbot.py
-│   │       ├─ 10_Settings.py
-│   │       └─ 11_About.py
-│   └─ logging/
-│       └─ logger.py
+├── assets/
+│   └── logo.png
 │
-└─ tests/
-    ├─ __init__.py
-    ├─ test_auth.py
-    ├─ test_data_loader.py
-    ├─ test_preprocessing.py
-    ├─ test_train.py
-    ├─ test_simulation.py
-    └─ test_chatbot.py
-```
-
-## Setup
-```bash
-# Clone the repo (once we push it)
-git clone <repo-url>
-cd PayShieldAI
-
-# Create a virtual environment
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Create a .env file from the example and fill in your credentials
-cp .env.example .env
-# Edit .env with your DATABASE_URL and OPENROUTER_API_KEY
-
-# Initialise the database (tables are auto‑created on first run)
-python -c "import src.db.session; from src.db.base import Base; from src.config import settings; Base.metadata.create_all(src.db.session.engine)"
-
-# Train the fraud model (runs once, creates models/ folder)
-python -m src.ml.train
-
-# Run the Streamlit app
-streamlit run main.py
-```
-
-## Testing
-```bash
-pytest -q
+├── data/
+│
+├── models/
+│   └── metadata.json
+│
+├── src/
+│   ├── db/
+│   ├── logging/
+│   ├── ml/
+│   ├── security/
+│   ├── simulation/
+│   └── ui/
+│       ├── components/
+│       │   ├── metrics_card.py
+│       │   └── navigation.py
+│       │
+│       └── pages/
+│           ├── 1_Login.py
+│           ├── 2_Dashboard.py
+│           ├── 3_RealTimeMonitoring.py
+│           ├── 4_TransactionSimulation.py
+│           ├── 5_PredictionHistory.py
+│           ├── 6_Analytics.py
+│           ├── 7_Reports.py
+│           ├── 8_Alerts.py
+│           ├── 9_Chatbot.py
+│           ├── 10_Settings.py
+│           ├── 11_About.py
+│           ├── dashboard.py
+│           ├── transaction_analysis.py
+│           ├── fraud_monitoring.py
+│           ├── reports_history.py
+│           └── system.py
+│
+├── main.py
+├── requirements.txt
+├── README.md
+└── .gitignore
 ```
 
 ---
-*This project is for educational purposes only and **must not** be used in production banking environments.*
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Abiramijayaraman/PayShieldAI.git
+cd PayShieldAI
+```
+
+Create a virtual environment:
+
+```bash
+python -m venv .venv
+```
+
+Activate it:
+
+**Windows**
+
+```bash
+.venv\Scripts\activate
+```
+
+**Linux / macOS**
+
+```bash
+source .venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## ▶️ Run the Application
+
+```bash
+streamlit run main.py
+```
+
+---
+
+## 📊 Main Modules
+
+- Login & Authentication
+- Dashboard
+- Real-Time Monitoring
+- Transaction Simulation
+- Transaction Analysis
+- Prediction History
+- Analytics
+- Reports
+- Fraud Monitoring
+- Alerts
+- AI Chatbot
+- System Information
+- Settings
+- About
+
+---
+
+## 🤖 Machine Learning
+
+The fraud detection pipeline includes:
+
+- Data preprocessing
+- Feature engineering
+- Fraud prediction
+- Risk scoring
+- Batch inference
+- AI-generated explanations
+
+---
+
+## 📷 Application Features
+
+- Interactive dashboards
+- KPI cards
+- Fraud probability prediction
+- Risk score visualization
+- Batch CSV analysis
+- Downloadable reports
+- AI-powered explanations
+- PostgreSQL-backed storage
+
+---
+
+## 👩‍💻 Author
+
+**Abirami Jayaraman**
+
+GitHub:
+https://github.com/Abiramijayaraman
+
+---
+
+## 📄 License
+
+This project is developed for educational and research purposes.
